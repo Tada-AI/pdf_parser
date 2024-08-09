@@ -4,7 +4,7 @@ import re
 from cuid2 import cuid_wrapper
 import math
 
-from shared.models.serializable_content_block import (
+from serializable_content_block import (
     Location,
     SerializableHeaderContentBlock,
     SerializableListContentBlock,

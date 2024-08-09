@@ -1,6 +1,6 @@
 import asyncio
 from dataclasses import dataclass
-from io import BytesIO, IOBase
+from io import BytesIO
 import typing
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
@@ -12,26 +12,25 @@ from rtree.index import Index as RTreeIndex
 
 from pdfminer.layout import LTPage, LTChar, LTTextContainer, LTTextLine
 from pdfminer.high_level import extract_pages
-from pdfminer.layout import LAParams
 
-from file_parsing.parsers.layout_analysis.recursive_lines import recursive_lines
-from file_parsing.parsers.layout_analysis.table_cell_detection import (
+from layout_analysis.recursive_lines import recursive_lines
+from layout_analysis.table_cell_detection import (
     CalculatedTable,
     calculate_table,
 )
-from layout_analysis.layout_detector import LayoutDetectionResult
+from layout_analysis.layout_detection import LayoutDetectionResult
 from utils.pandautils import intersection_mask
-from file_parsing.parsers.pdf_parser.state_machine import (
+from state_machine import (
     ReconstructionStateMachine,
 )
-from file_parsing.content_block import (
+from content_block import (
     RootContentBlock,
 )
-from file_parsing.parsers.base_parser import BaseParser
+from base_parser import BaseParser
 from .characters import unordered_list_prefix, ordered_list_prefix
 from utils.normalization import X0, X1, Y0, Y1, Rect, normalize_bbox, scale_bbox
 from utils.colorutils import HSL, color_to_hsl, color_to_rbga_int
-from shared.utils.stringutils import (
+from utils.stringutils import (
     is_whitespace,
     normalize_newlines,
     normalize_text,
@@ -882,7 +881,7 @@ class PdfParser(BaseParser):
         return state_machine.process()
 
 
-from file_parsing.parsers.layout_analysis.layout_detection import (
+from layout_analysis.layout_detection import (
     LayoutDetector,
     ModelReference,
 )

@@ -5,11 +5,11 @@ from typing import Union
 import pandas as pd
 import re
 
-from file_parsing.parsers.layout_analysis.table_cell_detection import (
+from layout_analysis.table_cell_detection import (
     CalculatedTable,
 )
-from shared.models.serializable_content_block import Location
-from file_parsing.content_block import (
+from serializable_content_block import Location
+from content_block import (
     ContentBlock,
     HeaderContentBlock,
     ListContentBlock,
