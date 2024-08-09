@@ -1,0 +1,33 @@
+[project]
+name = "pdf_parser"
+version = "0.1.0"
+description = "Good enough PDF parsing on a CPU"
+authors = [{ name = "Tada AI", email = "noreply@tadatoday.ai" }]
+dependencies = [
+    "numpy==1.26.4",
+    "paddleocr==2.7.3",
+    "pdf2image==1.17.0",
+    "scikit-learn==1.4.1.post1",
+    "pdfminer-six==20231228",
+    "pandas==2.1.2",
+    "rtree==1.2.0",
+    "paddlepaddle==2.6.1",
+    "cuid2==2.0.0",
+    "pydantic>=2.8.2",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "AGPL" }
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
+
+[[tool.pdm.source]]
+name = "paddlepaddle"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+include_packages = ["paddlepaddle"]
