@@ -1,5 +1,4 @@
 import re
-from typing import Any, Callable, Dict, Iterable, TypeVar
 
 space_characters = r"\p{Z}"
 disallowed_characters = (
